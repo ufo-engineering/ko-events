@@ -1,0 +1,21 @@
+{
+  "name": "ufo-engineering/ko-events",
+  "description": "Event system for Kohana framework",
+  "keywords": ["kohana", "event", "module", "helper", "system"],
+  "homepage": "https://github.com/ufo-engineering/kohana-events",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ufo-engineering",
+      "email": "duckduck.ufo@gmail.com"
+    }
+  ],
+  "require" : {
+    "php": ">=5.2.4"
+  },
+  "autoload": {
+      "psr-4": {
+          "Ufo\\": "src/"
+      }
+  }
+}
