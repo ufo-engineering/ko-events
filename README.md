@@ -3,8 +3,6 @@ This version was transformed (`*with some changes`) from this package, special f
 
 ### Event system for Kohana framework ###
 
-Version 1.0.0
-
 Released on 2017-11-20
 
 By ufo-engineering
@@ -94,6 +92,8 @@ class Handler_EventTest implements Ufo\Handler\EventHandler
 * Fire event
 
 ```php
+use Ufo\Event;
+
 Event::fire(new Event_Test($user));
 OR
 Event::fire('someTestMethod', $user);
