@@ -18,13 +18,22 @@ class Event
     /**
      * Fire an event
      *
-     * @param object $event
+     * @param object|string $event
+     * @param object|array $data
      */
-    public static function fire($event, $data = [])
+    public static function fire($event, $data)
     {
-
         $event_alias = is_string($event) ? $event : get_class($event);
-        $event = is_string($event) ? $data : $event;
+
+        if (is_string($event)) {
+
+            if (is_array($data)) {
+                $data['action_name'] = $event;
+            }
+
+            $event = $data;
+        }
+
         \Kohana::$log->add(\Log::INFO, '---> Event fired: '.$event_alias);
 
         self::load();
@@ -41,7 +50,7 @@ class Event
                     break;
                 }
             } catch (\Exception $e) {
-                \Kohana::$log->add(Log::ERROR,
+                \Kohana::$log->add(\Log::ERROR,
                     $event_alias . ' -> ' . get_class($handler) . ': ' .
                     $e->getMessage() .
                     PHP_EOL . $e->getTraceAsString()
