@@ -21,7 +21,7 @@ class Event
      * @param object|string $event
      * @param object|array $data
      */
-    public static function fire($event, $data)
+    public static function fire($event, $data = null)
     {
         $event_alias = is_string($event) ? $event : get_class($event);
 
